@@ -141,7 +141,7 @@ h1{font-size:clamp(58px,13vw,90px);line-height:.98;font-weight:400;letter-spacin
     </section>
 
     <div class="ornament" aria-hidden="true"><span>❀</span></div>
-    <p class="countdown-title">Counting down to the big day</p>
+    <p class="countdown-title">Counting Down to the Reception</p>
     <div class="countdown" role="timer" aria-label="Countdown to the wedding">
       <div class="count-box"><strong id="days">---</strong><small>Days</small></div>
       <div class="count-box"><strong id="hours">--</strong><small>Hours</small></div>
@@ -170,7 +170,8 @@ h1{font-size:clamp(58px,13vw,90px);line-height:.98;font-weight:400;letter-spacin
   const receptionEnd   = '20261031T220000';
   const weddingStart   = '20261101T081000';
   const weddingEnd     = '20261101T111000';
-  const target = new Date('2026-11-01T08:10:00+05:30').getTime();
+  // Reception: 31 October 2026, 7:00 PM India Standard Time
+  const target = new Date('2026-10-31T19:00:00+05:30').getTime();
 
   const petals = document.getElementById('petals');
   for(let i=0;i<18;i++){
@@ -187,7 +188,7 @@ h1{font-size:clamp(58px,13vw,90px);line-height:.98;font-weight:400;letter-spacin
     const diff=target-Date.now();
     if(diff<=0){
       ['days','hours','minutes','seconds'].forEach(id=>document.getElementById(id).textContent='00');
-      document.querySelector('.countdown-title').textContent='The big day is here';
+      document.querySelector('.countdown-title').textContent='The Reception Is Here!';
       return;
     }
     const vals=[
