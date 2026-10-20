@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fff9ef">
+<meta name="description" content="Wedding invitation for Rekha M N and Hemanth Kumar B N.">
+<title>Rekha & Hemanth | Wedding Invitation</title>
+<style>
+:root{
+  --cream:#fff9ef; --ink:#292a24; --gold:#a96d16; --gold2:#d6a64c;
+  --rose:#d88388; --rose-dark:#9b4548; --muted:#84786b; --line:#d7b66e;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Georgia,"Times New Roman",serif}
+.invitation{position:relative;isolation:isolate;overflow:hidden;min-height:100vh;background:
+  radial-gradient(ellipse at 50% 34%,rgba(255,255,255,.78),transparent 57%),
+  linear-gradient(180deg,#fff9ef 0%,#fffaf1 70%,#fff4e9 100%)}
+.content{position:relative;z-index:2;width:min(100%,760px);margin:0 auto;padding:36px 24px 48px;text-align:center}
+.blossoms-top{position:absolute;z-index:1;left:-25px;right:-25px;top:-12px;height:300px;pointer-events:none;opacity:.95}
+.branch{position:absolute;top:42px;width:60%;height:180px;border-top:5px solid #46392a;border-radius:50%;transform:rotate(12deg)}
+.branch.left{left:-8%;}.branch.right{right:-8%;transform:scaleX(-1) rotate(12deg)}
+.blossom{position:absolute;width:25px;height:25px;border-radius:50%;background:
+ radial-gradient(circle at 50% 50%,#f5c2c7 0 12%,#d9829b 14% 24%,transparent 26%),
+ radial-gradient(ellipse at 50% 15%,#f3b6c4 0 28%,transparent 30%),
+ radial-gradient(ellipse at 85% 40%,#f8d1d7 0 28%,transparent 30%),
+ radial-gradient(ellipse at 70% 85%,#efa8bc 0 28%,transparent 30%),
+ radial-gradient(ellipse at 20% 80%,#f8d1d7 0 28%,transparent 30%),
+ radial-gradient(ellipse at 12% 35%,#e99db1 0 28%,transparent 30%);
+ filter:drop-shadow(0 1px 1px #e5a5b0);animation:sway 5s ease-in-out infinite}
+@keyframes sway{0%,100%{transform:rotate(-4deg) translateY(0)}50%{transform:rotate(5deg) translateY(4px)}}
+.petals{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+.petal{position:absolute;width:12px;height:22px;background:linear-gradient(135deg,#ffd5df,#e98cab);border-radius:100% 0 100% 0;opacity:.7;animation:fall linear infinite}
+@keyframes fall{0%{transform:translate3d(0,-10vh,0) rotate(0);opacity:0}10%{opacity:.75}90%{opacity:.65}100%{transform:translate3d(40px,110vh,0) rotate(320deg);opacity:0}}
+.eyebrow{margin:124px 0 22px;color:var(--gold);font:600 11px/1.8 Arial,sans-serif;letter-spacing:.34em;text-transform:uppercase}
+.name{font-size:clamp(34px,8vw,54px);font-weight:400;line-height:1.15;margin:0}
+.amp{font-size:clamp(36px,9vw,58px);font-style:italic;color:var(--gold);line-height:1.2;margin:3px 0}
+.invite-line{margin:24px 0 18px;font:11px/1.8 Arial,sans-serif;letter-spacing:.31em;color:var(--gold);text-transform:uppercase}
+h1{font-size:clamp(58px,13vw,90px);line-height:.98;font-weight:400;letter-spacing:-.045em;margin:0}
+.subtitle{font-size:clamp(25px,6vw,36px);font-style:italic;color:var(--rose);margin:12px 0 24px}
+.motto{font:11px Arial,sans-serif;letter-spacing:.31em;color:var(--gold);text-transform:uppercase}
+.ornament{display:flex;align-items:center;justify-content:center;gap:10px;width:min(230px,70%);margin:26px auto 24px;color:var(--rose)}
+.ornament:before,.ornament:after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--line))}
+.ornament:after{background:linear-gradient(90deg,var(--line),transparent)}
+.ornament span{font-size:19px;line-height:1}
+.event{display:grid;grid-template-columns:58px 1fr;align-items:center;gap:16px;max-width:540px;margin:25px auto;text-align:left}
+.event-icon{color:var(--gold);width:52px;height:58px}
+.label{font:600 11px Arial,sans-serif;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin:0 0 10px}
+.event-date{font-size:clamp(22px,5.3vw,31px);line-height:1.25;margin:0 0 7px}
+.event-time{font-size:clamp(22px,5.3vw,30px);margin:0}
+.venue{max-width:610px;margin:25px auto 0}
+.venue-name{font-size:clamp(23px,5.3vw,31px);line-height:1.35;margin:0 0 6px}
+.venue-address{font-size:clamp(16px,4vw,21px);letter-spacing:.04em;margin:0;color:#5e584d}
+.map-link{display:inline-flex;align-items:center;justify-content:center;gap:10px;margin-top:18px;padding:12px 22px;border-radius:999px;background:#fde9e4;color:var(--rose-dark);text-decoration:none;font-size:17px;transition:transform .2s,background .2s}
+.map-link:hover{transform:translateY(-2px);background:#fbdcd7}
+.countdown-title{font:600 11px Arial,sans-serif;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin:8px 0 0}
+.countdown{display:flex;justify-content:center;gap:12px;margin:24px auto 26px;flex-wrap:wrap}
+.count-box{width:92px;height:92px;border-radius:50%;background:#fde9e4;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--rose-dark)}
+.count-box strong{font-size:31px;font-weight:400;line-height:1.05}
+.count-box small{font:10px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;margin-top:6px}
+.calendar-btn{display:flex;align-items:center;justify-content:center;gap:13px;width:min(100%,440px);margin:24px auto 28px;padding:17px 20px;border:0;border-radius:999px;background:linear-gradient(100deg,#df8b8e,#d5797e);box-shadow:0 5px 14px rgba(170,90,90,.12);color:#fffaf7;font:20px Georgia,serif;cursor:pointer;transition:transform .2s,filter .2s}
+.calendar-btn:hover{transform:translateY(-2px);filter:brightness(1.03)}
+.calendar-btn svg{width:25px;height:25px;flex-shrink:0}
+.bottom-branch{display:flex;align-items:center;justify-content:space-between;max-width:520px;margin:0 auto 25px;color:var(--gold)}
+.bottom-branch svg{width:92px;height:50px}
+.bottom-branch .right-sprig{transform:scaleX(-1)}
+.closing{font:11px/1.9 Arial,sans-serif;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);max-width:440px;margin:0 auto}
+.footer-flower{position:absolute;bottom:-30px;width:220px;height:190px;opacity:.5;background:radial-gradient(ellipse at 15% 90%,#f2c2c6 0 15%,transparent 16%),radial-gradient(ellipse at 35% 100%,#f6d0d2 0 22%,transparent 23%),radial-gradient(ellipse at 70% 100%,#f4c1ca 0 20%,transparent 21%);z-index:0}
+.footer-flower.left{left:-45px}.footer-flower.right{right:-45px;transform:scaleX(-1)}
+.toast{position:fixed;z-index:5;left:50%;bottom:20px;transform:translate(-50%,20px);padding:12px 18px;background:#393127;color:#fff;border-radius:9px;font:14px Arial,sans-serif;opacity:0;pointer-events:none;transition:.25s;max-width:90%;text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:420px){.content{padding:25px 22px 40px}.eyebrow{margin-top:120px;letter-spacing:.27em}.event{grid-template-columns:44px 1fr;gap:12px}.event-icon{width:42px}.countdown{gap:8px}.count-box{width:76px;height:76px}.count-box strong{font-size:27px}.count-box small{font-size:9px}.calendar-btn{font-size:18px;padding:16px 12px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main class="invitation">
+  <div class="blossoms-top" aria-hidden="true">
+    <div class="branch left"></div><div class="branch right"></div>
+    <i class="blossom" style="left:2%;top:15px"></i><i class="blossom" style="left:9%;top:65px;width:21px;height:21px;animation-delay:-2s"></i>
+    <i class="blossom" style="left:17%;top:26px;width:30px;height:30px;animation-delay:-1s"></i><i class="blossom" style="left:27%;top:75px;animation-delay:-3s"></i>
+    <i class="blossom" style="left:37%;top:30px;width:28px;height:28px"></i><i class="blossom" style="left:48%;top:68px;width:32px;height:32px;animation-delay:-2s"></i>
+    <i class="blossom" style="left:59%;top:24px;width:23px;height:23px;animation-delay:-1s"></i><i class="blossom" style="left:70%;top:72px;width:30px;height:30px"></i>
+    <i class="blossom" style="left:81%;top:20px;width:28px;height:28px;animation-delay:-2s"></i><i class="blossom" style="left:92%;top:60px;width:32px;height:32px"></i>
+    <i class="blossom" style="left:4%;top:135px;width:23px;height:23px"></i><i class="blossom" style="left:88%;top:142px;width:20px;height:20px"></i>
+  </div>
+  <div class="petals" id="petals" aria-hidden="true"></div>
+  <div class="footer-flower left" aria-hidden="true"></div><div class="footer-flower right" aria-hidden="true"></div>
+  <div class="content">
+    <p class="eyebrow">Together with their families</p>
+    <p class="name">Rekha M N</p>
+    <p class="amp">&amp;</p>
+    <p class="name">Hemanth Kumar B N</p>
+    <p class="invite-line">Warmly invite you to the</p>
+    <h1>Wedding</h1>
+    <p class="subtitle">A New Beginning</p>
+    <p class="motto">Celebration · Hope · Happiness</p>
+
+    <div class="ornament" aria-hidden="true"><span>❀</span></div>
+
+    <section class="event" aria-label="Wedding reception">
+      <svg class="event-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M13 9l12 4-5 22c-1 5-7 8-12 4-3-2-3-5-2-8zM51 9l-12 4 5 22c1 5 7 8 12 4 3-2 3-5 2-8z"/>
+        <path d="M10 18l11 4M44 22l11-4M19 43l-8 14M45 43l8 14M7 57h15M42 57h15M27 5l5-4 5 4M32 1v-1"/>
+        <path d="M23 13l5 17M41 13l-5 17"/>
+      </svg>
+      <div>
+        <p class="label">Reception</p>
+        <p class="event-date">Saturday, 31 October 2026</p>
+        <p class="event-time">7:00 PM</p>
+      </div>
+    </section>
+
+    <div class="ornament" aria-hidden="true"><span>❀</span></div>
+
+    <section class="event" aria-label="Wedding ceremony">
+      <svg class="event-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M32 4c-8 11-12 17-12 24 0 7 5 11 12 11s12-4 12-11C44 21 40 15 32 4Z"/>
+        <path d="M32 12c-3 7-4 12-4 16M32 16c4 4 6 9 6 13M18 29c-6 4-8 8-8 13 0 8 10 12 22 12s22-4 22-12c0-5-2-9-8-13"/>
+        <path d="M15 40h34M13 46h38M18 54l-3 6h34l-3-6M23 34c4 4 14 4 18 0M25 42v6M32 42v6M39 42v6"/>
+        <path d="M32 1v5M25 7l-4-4M39 7l4-4"/>
+      </svg>
+      <div>
+        <p class="label">Wedding Ceremony</p>
+        <p class="event-date">Sunday, 1 November 2026</p>
+        <p class="event-time">8:10 AM</p>
+      </div>
+    </section>
+
+    <div class="ornament" aria-hidden="true"><span>❀</span></div>
+
+    <section class="venue" aria-label="Wedding venue">
+      <p class="label">Venue</p>
+      <p class="venue-name">Sri Bommalingeshwara Kalyana Mantapa</p>
+      <p class="venue-address">Kachamachenahalli, Gauribidanur</p>
+      <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=Sri+Bommalingeshwara+Kalyana+Mantapa+Kachamachenahalli+Gauribidanur" target="_blank" rel="noopener">
+        <svg width="18" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+        View on Google Maps <span aria-hidden="true">›</span>
+      </a>
+    </section>
+
+    <div class="ornament" aria-hidden="true"><span>❀</span></div>
+    <p class="countdown-title">Counting down to the big day</p>
+    <div class="countdown" role="timer" aria-label="Countdown to the wedding">
+      <div class="count-box"><strong id="days">---</strong><small>Days</small></div>
+      <div class="count-box"><strong id="hours">--</strong><small>Hours</small></div>
+      <div class="count-box"><strong id="minutes">--</strong><small>Minutes</small></div>
+      <div class="count-box"><strong id="seconds">--</strong><small>Seconds</small></div>
+    </div>
+
+    <button class="calendar-btn" id="calendarBtn" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>
+      Add to Calendar <span aria-hidden="true">›</span>
+    </button>
+
+    <div class="bottom-branch" aria-hidden="true">
+      <svg viewBox="0 0 100 55" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M5 50Q45 36 88 5M25 42Q18 25 8 22Q9 37 25 42ZM43 33Q38 14 47 7Q55 24 43 33ZM61 22Q61 10 76 7Q74 22 61 22ZM26 42Q39 46 42 53Q28 54 26 42Z"/></svg>
+      <svg class="right-sprig" viewBox="0 0 100 55" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M5 50Q45 36 88 5M25 42Q18 25 8 22Q9 37 25 42ZM43 33Q38 14 47 7Q55 24 43 33ZM61 22Q61 10 76 7Q74 22 61 22ZM26 42Q39 46 42 53Q28 54 26 42Z"/></svg>
+    </div>
+    <div class="ornament" aria-hidden="true"><span>♧</span></div>
+    <p class="closing">We look forward to your blessings<br>and presence</p>
+  </div>
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(function(){
+  // Event times are in India Standard Time (UTC+05:30).
+  const receptionStart = '20261031T190000';
+  const receptionEnd   = '20261031T220000';
+  const weddingStart   = '20261101T081000';
+  const weddingEnd     = '20261101T111000';
+  const target = new Date('2026-11-01T08:10:00+05:30').getTime();
+
+  const petals = document.getElementById('petals');
+  for(let i=0;i<18;i++){
+    const p=document.createElement('i');
+    p.className='petal';
+    p.style.left=(Math.random()*100)+'%';
+    p.style.animationDuration=(10+Math.random()*13)+'s';
+    p.style.animationDelay=(-Math.random()*20)+'s';
+    p.style.transform='scale('+(0.55+Math.random()*.7)+')';
+    petals.appendChild(p);
+  }
+
+  function updateCountdown(){
+    const diff=target-Date.now();
+    if(diff<=0){
+      ['days','hours','minutes','seconds'].forEach(id=>document.getElementById(id).textContent='00');
+      document.querySelector('.countdown-title').textContent='The big day is here';
+      return;
+    }
+    const vals=[
+      Math.floor(diff/86400000),
+      Math.floor((diff%86400000)/3600000),
+      Math.floor((diff%3600000)/60000),
+      Math.floor((diff%60000)/1000)
+    ];
+    ['days','hours','minutes','seconds'].forEach((id,i)=>document.getElementById(id).textContent=String(vals[i]).padStart(2,'0'));
+  }
+  updateCountdown(); setInterval(updateCountdown,1000);
+
+  function icsDate(date){
+    return date; // Already in local wall-clock format for Asia/Kolkata.
+  }
+  function makeEvent(uid,summary,description,location,start,end){
+    return [
+      'BEGIN:VEVENT',
+      'UID:'+uid+'@hemanth-rekha-wedding',
+      'DTSTAMP:'+new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,''),
+      'DTSTART;TZID=Asia/Kolkata:'+icsDate(start),
+      'DTEND;TZID=Asia/Kolkata:'+icsDate(end),
+      'SUMMARY:'+summary,
+      'DESCRIPTION:'+description,
+      'LOCATION:'+location,
+      'END:VEVENT'
+    ].join('\r\n');
+  }
+  function escapeICS(s){return s.replace(/\\/g,'\\\\').replace(/,/g,'\\,').replace(/;/g,'\\;').replace(/\n/g,'\\n');}
+  document.getElementById('calendarBtn').addEventListener('click',function(){
+    const location='Sri Bommalingeshwara Kalyana Mantapa, Kachamachenahalli, Gauribidanur';
+    const reception=makeEvent('reception','Wedding Reception — Hemanth & Rekha','Celebrate the wedding reception of Hemanth Kumar B N and Rekha M N.',location,receptionStart,receptionEnd);
+    const ceremony=makeEvent('ceremony','Wedding Ceremony — Hemanth & Rekha','Wedding Muhurtham of Hemanth Kumar B N and Rekha M N.',location,weddingStart,weddingEnd);
+    const ics=[
+      'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Hemanth and Rekha//Wedding Invitation//EN',
+      'CALSCALE:GREGORIAN','METHOD:PUBLISH',
+      'BEGIN:VTIMEZONE','TZID:Asia/Kolkata','BEGIN:STANDARD','DTSTART:19700101T000000','TZOFFSETFROM:+0530','TZOFFSETTO:+0530','TZNAME:IST','END:STANDARD','END:VTIMEZONE',
+      reception,ceremony,'END:VCALENDAR'
+    ].join('\r\n').replace(/SUMMARY:([^\r\n]+)/g,(_,v)=>'SUMMARY:'+escapeICS(v)).replace(/DESCRIPTION:([^\r\n]+)/g,(_,v)=>'DESCRIPTION:'+escapeICS(v)).replace(/LOCATION:([^\r\n]+)/g,(_,v)=>'LOCATION:'+escapeICS(v));
+    const blob=new Blob([ics],{type:'text/calendar;charset=utf-8'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    a.href=url;a.download='Hemanth-Rekha-Wedding.ics';
+    document.body.appendChild(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),1500);
+    showToast('Calendar file downloaded. Open it to add both wedding events to your calendar.');
+  });
+
+  let toastTimer;
+  function showToast(msg){
+    const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
+    clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),4500);
+  }
+})();
+</script>
+</body>
+</html>
