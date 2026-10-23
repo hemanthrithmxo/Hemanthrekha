@@ -84,10 +84,7 @@ h1{font-size:clamp(58px,13vw,90px);line-height:.98;font-weight:400;letter-spacin
 .music-toggle{position:fixed;right:16px;top:16px;z-index:20;display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid #d7b66e;border-radius:999px;background:rgba(255,249,239,.97);color:#8d641b;font:600 12px Arial,sans-serif;cursor:pointer;box-shadow:0 4px 12px rgba(80,55,20,.12)}
 .music-toggle:hover{background:#fff1d8}
 .music-toggle:focus-visible{outline:2px solid #a96d16;outline-offset:3px}
-.music-player{position:fixed;right:16px;top:62px;z-index:19;width:min(320px,calc(100vw - 32px));background:#fff9ef;border:1px solid #d7b66e;border-radius:12px;padding:10px;box-shadow:0 8px 24px rgba(60,40,10,.18)}
-.music-player iframe{display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:8px}
-.music-player p{margin:8px 2px 2px;font:12px/1.4 Arial,sans-serif;color:#6d5a3c}
-@media(max-width:420px){.music-toggle{top:10px;right:10px;padding:9px 11px;font-size:11px}.music-player{top:54px;right:10px;width:min(300px,calc(100vw - 20px))}}
+@media(max-width:420px){.music-toggle{top:10px;right:10px;padding:9px 11px;font-size:11px}}
 
 </style>
 </head>
@@ -95,7 +92,8 @@ h1{font-size:clamp(58px,13vw,90px);line-height:.98;font-weight:400;letter-spacin
 <button class="music-toggle" id="musicToggle" type="button" aria-expanded="false" aria-label="Open wedding music player">
   <span aria-hidden="true">♫</span><span id="musicLabel">Play Music</span>
 </button>
-<div class="music-player" id="musicPlayer" hidden></div>
+<audio id="weddingAudio" src="./kalaavathi-background.mp3" preload="auto" loop></audio>
+
 <main class="invitation">
   <div class="blossoms-top" aria-hidden="true">
     <div class="branch left"></div><div class="branch right"></div>
@@ -272,21 +270,35 @@ h1{font-size:clamp(58px,13vw,90px);line-height:.98;font-weight:400;letter-spacin
 <script>
 (function(){
   const button=document.getElementById('musicToggle');
-  const panel=document.getElementById('musicPlayer');
   const label=document.getElementById('musicLabel');
-  const videoId='jEHeUjewkqo';
-  function showPlayer(autoplay){
-    panel.hidden=false;
-    panel.innerHTML='<iframe title="Wedding invitation background audio" src="https://www.youtube-nocookie.com/embed/'+videoId+'?autoplay='+(autoplay?'1':'0')+'&playsinline=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><p>Music source: YouTube Short shared for this invitation</p>';
-    label.textContent='Music Player';
-    button.setAttribute('aria-expanded','true');
+  const audio=document.getElementById('weddingAudio');
+
+  async function startMusic(){
+    try {
+      await audio.play();
+      label.textContent='Pause Music';
+      button.setAttribute('aria-label','Pause wedding background music');
+    } catch (err) {
+      label.textContent='Play Music';
+      button.setAttribute('aria-label','Play wedding background music');
+    }
+  }
+  function pauseMusic(){
+    audio.pause();
+    label.textContent='Play Music';
+    button.setAttribute('aria-label','Play wedding background music');
   }
   button.addEventListener('click',function(){
-    if(panel.hidden) showPlayer(true);
-    else { panel.hidden=true; panel.innerHTML=''; label.textContent='Play Music'; button.setAttribute('aria-expanded','false'); }
+    if(audio.paused) startMusic();
+    else pauseMusic();
   });
-  // Attempt autoplay as soon as this page opens. Browsers may require a tap before sound can play.
-  if(document.body.dataset.musicAutoplay==='true') showPlayer(true);
+
+  // Attempt autoplay on page load; browser settings may require a tap.
+  if(document.body.dataset.musicAutoplay==='true') startMusic();
+
+  // Start music on the opening-page interaction as well.
+  const openLink=document.querySelector('a.open');
+  if(openLink) openLink.addEventListener('click',function(){ startMusic(); });
 })();
 </script>
 
