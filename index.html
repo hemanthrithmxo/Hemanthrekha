@@ -40,14 +40,9 @@ body{min-height:100vh;display:flex;align-items:center;justify-content:center;bac
 
 </style>
 </head>
-<body data-music-autoplay="true">
+<body>
 <main class="cover">
-<button class="music-toggle" id="musicToggle" type="button" aria-expanded="false" aria-label="Open wedding music player">
-  <span aria-hidden="true">♫</span><span id="musicLabel">Play Music</span>
-</button>
-<audio id="weddingAudio" src="./kalaavathi-background.mp3" preload="auto" loop></audio>
-
-  <div class="inner">
+<div class="inner">
     <div class="ornament" aria-hidden="true"><span>•</span><span class="diamond"></span><span>•</span></div>
     <p class="eyebrow">WEDDING INVITATION</p>
     <h1 class="name">Hemanth Kumar B N</h1>
@@ -65,41 +60,6 @@ body{min-height:100vh;display:flex;align-items:center;justify-content:center;bac
 
 
 
-
-<script>
-(function(){
-  const button=document.getElementById('musicToggle');
-  const label=document.getElementById('musicLabel');
-  const audio=document.getElementById('weddingAudio');
-
-  async function startMusic(){
-    try {
-      await audio.play();
-      label.textContent='Pause Music';
-      button.setAttribute('aria-label','Pause wedding background music');
-    } catch (err) {
-      label.textContent='Play Music';
-      button.setAttribute('aria-label','Play wedding background music');
-    }
-  }
-  function pauseMusic(){
-    audio.pause();
-    label.textContent='Play Music';
-    button.setAttribute('aria-label','Play wedding background music');
-  }
-  button.addEventListener('click',function(){
-    if(audio.paused) startMusic();
-    else pauseMusic();
-  });
-
-  // Attempt autoplay on page load; browser settings may require a tap.
-  if(document.body.dataset.musicAutoplay==='true') startMusic();
-
-  // Start music on the opening-page interaction as well.
-  const openLink=document.querySelector('a.open');
-  if(openLink) openLink.addEventListener('click',function(){ startMusic(); });
-})();
-</script>
 
 </body>
 </html>
