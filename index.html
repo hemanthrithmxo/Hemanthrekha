@@ -26,10 +26,29 @@ body{min-height:100vh;display:flex;align-items:center;justify-content:center;bac
 .open:hover,.open:focus-visible{transform:translateY(-3px);box-shadow:0 13px 26px #c9ad4b3b;outline:none}
 .envelope{width:36px;height:30px;color:#c6a53e}
 @media(max-width:420px){body{padding:12px}.cover{min-height:calc(100vh - 24px);padding:35px 20px}.eyebrow{letter-spacing:.24em;margin-bottom:28px}.rule{margin:30px auto 25px}.open{margin-top:48px;min-height:135px;font-size:16px}}
+
+.music-toggle{position:absolute;right:22px;top:22px;z-index:3;display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid #dfc875;border-radius:999px;background:#fffdf2;color:#8d6e20;font:600 12px Arial,sans-serif;cursor:pointer;box-shadow:0 4px 12px #c9ad4b18}
+.music-toggle:hover{background:#fff8df}
+.music-toggle svg{width:16px;height:16px}
+@media(max-width:420px){.music-toggle{top:16px;right:16px;padding:9px 11px;font-size:11px}}
+
+
+.music-toggle{position:fixed;right:16px;top:16px;z-index:20;display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid #d7b66e;border-radius:999px;background:rgba(255,249,239,.97);color:#8d641b;font:600 12px Arial,sans-serif;cursor:pointer;box-shadow:0 4px 12px rgba(80,55,20,.12)}
+.music-toggle:hover{background:#fff1d8}
+.music-toggle:focus-visible{outline:2px solid #a96d16;outline-offset:3px}
+.music-player{position:fixed;right:16px;top:62px;z-index:19;width:min(320px,calc(100vw - 32px));background:#fff9ef;border:1px solid #d7b66e;border-radius:12px;padding:10px;box-shadow:0 8px 24px rgba(60,40,10,.18)}
+.music-player iframe{display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:8px}
+.music-player p{margin:8px 2px 2px;font:12px/1.4 Arial,sans-serif;color:#6d5a3c}
+@media(max-width:420px){.music-toggle{top:10px;right:10px;padding:9px 11px;font-size:11px}.music-player{top:54px;right:10px;width:min(300px,calc(100vw - 20px))}}
+
 </style>
 </head>
-<body>
+<body data-music-autoplay="true">
 <main class="cover">
+<button class="music-toggle" id="musicToggle" type="button" aria-expanded="false" aria-label="Open wedding music player">
+  <span aria-hidden="true">♫</span><span id="musicLabel">Play Music</span>
+</button>
+<div class="music-player" id="musicPlayer" hidden></div>
   <div class="inner">
     <div class="ornament" aria-hidden="true"><span>•</span><span class="diamond"></span><span>•</span></div>
     <p class="eyebrow">WEDDING INVITATION</p>
@@ -45,5 +64,30 @@ body{min-height:100vh;display:flex;align-items:center;justify-content:center;bac
     </a>
   </div>
 </main>
+
+
+
+
+<script>
+(function(){
+  const button=document.getElementById('musicToggle');
+  const panel=document.getElementById('musicPlayer');
+  const label=document.getElementById('musicLabel');
+  const videoId='jEHeUjewkqo';
+  function showPlayer(autoplay){
+    panel.hidden=false;
+    panel.innerHTML='<iframe title="Wedding invitation background audio" src="https://www.youtube-nocookie.com/embed/'+videoId+'?autoplay='+(autoplay?'1':'0')+'&playsinline=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><p>Music source: YouTube Short shared for this invitation</p>';
+    label.textContent='Music Player';
+    button.setAttribute('aria-expanded','true');
+  }
+  button.addEventListener('click',function(){
+    if(panel.hidden) showPlayer(true);
+    else { panel.hidden=true; panel.innerHTML=''; label.textContent='Play Music'; button.setAttribute('aria-expanded','false'); }
+  });
+  // Attempt autoplay as soon as this page opens. Browsers may require a tap before sound can play.
+  if(document.body.dataset.musicAutoplay==='true') showPlayer(true);
+})();
+</script>
+
 </body>
 </html>
